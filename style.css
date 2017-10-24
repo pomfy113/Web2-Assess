@@ -1,0 +1,35 @@
+body {
+    font-family: helvetica;
+}
+
+thead{
+    background-color: black;
+    color: white;
+}
+
+tbody>tr:nth-child(even){
+    background-color: lightblue;
+}
+tbody>tr>td:nth-child(3){
+    text-align: center;
+}
+tbody>tr>td:nth-child(4){
+    text-align: right;
+}
+tbody td:nth-child(4):before{
+    content: "$";
+}
+
+input[value=submit]{
+    background-color: green;
+    color: white;
+    border: 0px;
+}
+
+
+input[value=clear]{
+    background-color: red;
+    color: white;
+    border: 0px;
+
+}

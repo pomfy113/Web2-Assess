@@ -1,0 +1,18 @@
+<doctype! html>
+<body>
+    Testing!
+</body>
+<script>
+console.log("Testing");
+
+fetch("./MOCK_DATA.csv").then((res) => {
+    return res.text();
+}).then((data) =>{
+    const lines = data.split('\n');
+    const keys = lines.shift().split(',');
+    console.log(keys);
+}).catch((err) => {
+    console.log(err.message);
+});
+
+</script>
