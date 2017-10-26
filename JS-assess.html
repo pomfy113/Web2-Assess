@@ -10,7 +10,40 @@ fetch("./MOCK_DATA.csv").then((res) => {
 }).then((data) =>{
     const lines = data.split('\n');
     const keys = lines.shift().split(',');
-    console.log(keys);
+    var rows = {};
+
+    for(i=0; i < lines.length - 1; i++){
+        data = lines[i].split(',');
+        // console.log(data)
+        var obj = {};
+        for(j=0; j < keys.length; j++){
+             var key = keys[j];
+             switch(key){
+                case 'id':
+                    obj[key] = Number(data[j]);
+                    break;
+                case 'rating':
+                    obj[key] = Number(data[j]);
+                    break;
+                case 'age':
+                    obj[key] = Number(data[j]);
+                    break;
+                case 'date':
+                    obj[key] = new Date(data[j] * 1000);
+                    break;
+                default:
+                    obj[key] = data[j];
+                    break;
+             }
+             obj['fullname'] = obj.prefix + " " +  obj.first_name + " " + obj.last_name;
+             obj['rating2'] = String(Number(obj.rating).toFixed(2));
+         }
+         console.log(obj);
+
+
+    }
+
+
 }).catch((err) => {
     console.log(err.message);
 });
